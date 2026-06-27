@@ -1,0 +1,19 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Default deny. Per-collection rules are added as models land
+    // (see the `add-firestore-collection` skill, once written).
+    //
+    // INVARIANT (see AGENTS.md "The economy invariant"):
+    //   Clients NEVER write economy fields — xp, level, avatarState, aspects,
+    //   counters — or the eco-value vector. Those are written ONLY by Cloud
+    //   Functions (firebase-admin), which bypass these rules. A rules test must
+    //   prove these client denials before any economy collection ships.
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

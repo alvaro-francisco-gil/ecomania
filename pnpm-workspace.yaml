@@ -1,0 +1,4 @@
+# functions/ is managed separately via npm (mirrors ordago/cultuvilla) — not a workspace member.
+packages:
+  - "apps/*"
+  - "packages/*"

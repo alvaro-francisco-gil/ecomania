@@ -1,0 +1,11 @@
+{
+  "name": "ecomania",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@10.24.0",
+  "description": "Gamified ecology social app — eco-survey → evolving ecoavatar → social leveling. Web funnel + native game.",
+  "scripts": {
+    "ralph:once": "bash ralph/once.sh",
+    "ralph:afk": "bash ralph/afk.sh"
+  }
+}
