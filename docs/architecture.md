@@ -63,7 +63,11 @@ avatar reveal → "continue in app". The full social game lives only in the nati
 The ecoavatar is driven by **three independent numeric systems**, all expressed as Rive
 inputs / data-binding on one `.riv` file:
 
-1. **Archetype** — set once from the onboarding survey; picks the base look (`ecoTrait`).
+1. **Archetype** — set from the onboarding survey; picks the base form (`ecoTrait`). The base
+   form is **stable by default**, but when the live value vector drifts far enough the app
+   **proposes a morph** (a transformation ceremony) that the **user accepts or declines** —
+   user-consented evolution, never automatic. *(Decided 2026-06-28; "drift far enough" + the
+   proposal UX are part of the creative-core exploration.)*
 2. **Aspects** — activity volume in three dimensions, each growing different parts:
    `voice` (posting), `knowledge` (surveys/questionnaires), `community` (comments/referrals).
 3. **Value vector** — the evolving eco-identity (see §5); drives palette / aura / stance.
@@ -165,11 +169,16 @@ Invariant: **never make the user redo the survey after install.**
 ## 10. Open questions (deliberately unresolved)
 
 These are **not** decided yet and block the model/skill work that depends on them:
-- The exact **survey instrument** and the **value axes** (count + definitions).
-- The **archetype taxonomy** (= the set of base `.riv` avatars the designer must build).
+- The exact **survey instrument**, the **value axes** (count + definitions), and the
+  **archetype taxonomy** (= the set of base `.riv` avatars the designer must build). These
+  three form the *creative core* and are being explored in a dedicated session — see the brief
+  and current straw-men in [`docs/plans/ideas/creative-core-exploration.md`](plans/ideas/creative-core-exploration.md).
 - The **data models** (`profiles`, `posts`, `surveys`, `questionnaires`, `valueProfile`,
   `xpEvents`, `feeds`, …) and the precise XP values / level curve.
 - i18n strategy (multi-language from launch?).
+
+**Decided so far:** the avatar's base **form is stable**, with **user-consented morphs**
+proposed when the value vector drifts far enough (see §4).
 
 Until these land, the ecomania-specific skills (`awarding-xp`, `rive-avatar-contract`,
 `funnel-handoff`, `topical-questionnaire`, `values-privacy`, `moderation-pipeline`) stay
