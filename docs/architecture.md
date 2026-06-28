@@ -85,6 +85,9 @@ an input is a contract change touching both renderers and the `.riv`.
 integration against placeholder/sample `.riv` for free; turn on Cadet when exporting the real
 avatar. The subscription gates *export*, not playback.
 
+→ Designer workflow, the clip-vs-component reasoning, alternatives, where `avatar.riv` lives,
+and the full pricing ladder: [`docs/rive-and-animation.md`](rive-and-animation.md).
+
 ---
 
 ## 5. The "living values" dynamic
@@ -136,7 +139,8 @@ Three layers, ranked by how much AI can author:
   AI writes the *integration code* that drives inputs.
 
 **Implication:** reserve Rive for the one thing that needs it (the evolving avatar, designer-owned);
-do everything else with code + Lottie, where the team moves fast with AI.
+do everything else with code + Lottie, where the team moves fast with AI. Details in
+[`docs/rive-and-animation.md`](rive-and-animation.md).
 
 ---
 
