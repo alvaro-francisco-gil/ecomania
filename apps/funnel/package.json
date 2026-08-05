@@ -7,14 +7,17 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "prebuild": "node scripts/copy-rive-assets.mjs",
+    "predev": "node scripts/copy-rive-assets.mjs"
   },
   "dependencies": {
     "@ecomania/shared": "workspace:*",
     "firebase": "^12.17.1",
     "next": "^16.3.0",
     "react": "^19.2.8",
-    "react-dom": "^19.2.8"
+    "react-dom": "^19.2.8",
+    "@rive-app/react-canvas": "^4.30.0"
   },
   "devDependencies": {
     "@types/node": "^20.19.0",

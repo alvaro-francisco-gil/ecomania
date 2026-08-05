@@ -163,15 +163,30 @@ Riesgo: puede leerse como "mascotas" en vez de como colectividad.
 Mucho más potente y evita del todo la lectura de mascota, pero es bastante más caro: en el
 extremo el cuerpo se disuelve, y eso es rig complejo.
 
-**Criterio para elegir:** si el extremo colectivo de la opción B se puede montar sin
-comprometer la legibilidad del neutro, es la mejor. Si obliga a rehacer el rig entero, ve con
-A y guarda B como ampliación.
+**Opción C · Conexión**
 
-**⚠️ Restricción — lo que NO puede usar este eje:** hilos, líneas de conexión o vínculos
-dibujados entre acompañantes. Ese lenguaje está reservado para el aspecto `community`
-(actividad social real del usuario en la app), que se expresa como **conexión y actividad entre
-los acompañantes**, no como cuántos hay. Los dos sistemas comparten los acompañantes pero con
-gramáticas distintas: el eje 3 dice *cuántos*, `community` dice *qué hacen entre ellos*.
+| − Individual | · Centro | + Colectivo |
+|---|---|---|
+| criatura sola, sin vínculos | unida por unos pocos hilos a acompañantes sueltos | **nodo indistinguible de la red** — micelio, malla, tejido continuo |
+
+Coste intermedio. Es la lectura más precisa del eje —"el cambio viene de la estructura, no del
+individuo"— y encaja especialmente bien con las formas base fúngicas y coloniales. Riesgo: en
+las formas base construidas o animales los hilos pueden leerse como cables o correas, que es
+otra cosa.
+
+**Criterio para elegir:** las tres son válidas y se pueden mezclar (A + C juntas funcionan: más
+acompañantes *y* más conectados). El filtro es el neutro: si el extremo colectivo de B o C
+compromete la legibilidad del centro o exige rehacer el rig, ve con A y guarda la otra como
+ampliación.
+
+> **Consecuencia a tener en cuenta.** El aspecto `community` (actividad social real del usuario
+> en la app) también quiere expresarse en los acompañantes. **El eje 3 elige primero** — es
+> valor, y el valor manda sobre la actividad. Lo que quede libre es para `community`.
+>
+> La salida limpia, si el eje 3 se lleva número y conexión, es que `community` se lleve el
+> **movimiento**: la misma composición de acompañantes, pero **dormida ↔ bulliciosa** (ritmo,
+> órbita, agitación). Estructura vs movimiento son propiedades genuinamente disjuntas, así que
+> siguen componiendo sin pelearse. Decisión pendiente — §13.
 
 ### Eje 4 — tecnocrático ↔ grassroots → **la geometría del cuerpo** · DECIDIDO
 
@@ -341,8 +356,8 @@ Figura con rostro, de barro remendado, sin jefe, en asamblea. *Una asamblea de b
 | # | Qué | De quién es |
 |---|---|---|
 | 1 | **Cuántas formas base** (§9) | producto — **bloquea** |
-| 2 | **Vocabulario del eje 3** — opción A o B (§5) | diseñador |
-| 3 | Portadores de los aspectos `voice` y `knowledge` — todavía sin asignar | producto + diseñador |
+| 2 | **Vocabulario del eje 3** — opción A, B o C, o mezcla (§5) | diseñador |
+| 3 | Portadores de los aspectos `voice`, `knowledge` y `community` — sin asignar. `community` depende de lo que elija el eje 3; candidato: el **movimiento** de los acompañantes (§5). Ojo con el punto muerto: si el polo individual deja **cero** acompañantes, `community` se queda sin nada que animar para los usuarios individualistas — o se garantiza un mínimo de uno, o `community` tiene que apoyarse también en el cuerpo | producto + diseñador |
 | 4 | Taxonomía de arquetipos: nombres, motivos, y cuáles comparten forma base | producto |
 | 5 | Niveles del aura y su progresión | producto + diseñador |
 | 6 | Nombres definitivos de los inputs (§10) | desarrollo |

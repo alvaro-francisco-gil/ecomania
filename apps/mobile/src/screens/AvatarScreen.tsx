@@ -1,5 +1,6 @@
 import { VALUE_AXES, VALUE_AXIS_IDS } from '@ecomania/shared';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import Rive from 'rive-react-native';
 
 /**
  * Placeholder home screen.
@@ -7,15 +8,21 @@ import { ScrollView, StyleSheet, Text, View } from 'react-native';
  * It renders the value-axis contract out of `@ecomania/shared`, which makes the workspace
  * dependency a compile-time assertion rather than a claim.
  *
- * The Rive avatar is **not** rendered yet: `rive-react-native` is installed, but
- * `packages/shared/assets/avatar.riv` does not exist — a `.riv` is a binary authored in the Rive
- * editor, so landing even a placeholder is a human decision about which sample to adopt and
- * under what licence. Until then this screen shows the data that will drive the avatar rather
- * than faking the avatar itself.
+ * The Rive canvas renders `avatar.sample.riv` — a development stand-in, not our avatar, and not
+ * yet driven by any input (the input contract is blocked on the archetype taxonomy). It is here
+ * so the integration layer exists before the real asset does. Same file as the funnel loads.
  */
 export function AvatarScreen() {
   return (
     <ScrollView contentContainerStyle={styles.content}>
+      <View style={styles.avatar}>
+        <Rive
+          source={require('@ecomania/shared/assets/avatar.sample.riv')}
+          autoplay
+          style={styles.rive}
+        />
+      </View>
+
       <Text style={styles.heading}>The value space</Text>
       <Text style={styles.body}>
         Four axes. Each drives one non-overlapping channel of the avatar.
@@ -41,6 +48,13 @@ const styles = StyleSheet.create({
   content: {
     padding: 24,
     gap: 16,
+  },
+  avatar: {
+    aspectRatio: 1,
+    width: '100%',
+  },
+  rive: {
+    flex: 1,
   },
   heading: {
     fontSize: 24,

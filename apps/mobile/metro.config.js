@@ -17,6 +17,9 @@ const workspaceRoot = path.resolve(projectRoot, '../..');
 const config = getDefaultConfig(projectRoot);
 
 config.watchFolders = [workspaceRoot];
+
+// `.riv` is a binary asset, not a source module — without this Metro tries to parse it as JS.
+config.resolver.assetExts = [...config.resolver.assetExts, 'riv'];
 config.resolver.nodeModulesPaths = [
   path.resolve(projectRoot, 'node_modules'),
   path.resolve(workspaceRoot, 'node_modules'),
