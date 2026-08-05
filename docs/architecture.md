@@ -60,7 +60,7 @@ avatar reveal → "continue in app". The full social game lives only in the nati
 
 ## 4. The avatar (Rive)
 
-The ecoavatar is driven by **three independent numeric systems**, all expressed as Rive
+The ecoavatar is driven by **four independent systems**, all expressed as Rive
 inputs / data-binding on one `.riv` file:
 
 1. **Archetype** — set from the onboarding survey; picks the base form (`ecoTrait`). The base
@@ -72,6 +72,12 @@ inputs / data-binding on one `.riv` file:
    `voice` (posting), `knowledge` (surveys/questionnaires), `community` (comments/referrals).
 3. **Value vector** — the evolving eco-identity (see §5); drives surface, companions and body
    geometry.
+4. **Element** — fire / water / air / earth, **the one thing the user picks**, in the first
+   questions of the onboarding survey. It carries *no* value information and never touches the
+   body: it is the **material of the aura** (embers, droplets, motes, dust) while the XP clock
+   keeps owning the aura's intensity. Unlike the vector it is **not special-category data**, so
+   it is the safe public handle when the vector is not. Record:
+   [`docs/decisions/avatar-element.md`](decisions/avatar-element.md).
 
 Plus triggers for juice (`xpPulse`, `levelUpBurst`) and booleans for unlockable cosmetics.
 

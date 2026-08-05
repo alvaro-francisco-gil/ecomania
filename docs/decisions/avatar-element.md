@@ -61,16 +61,23 @@ was not already saying.
   first questions, the funnel can show an aura immediately and let the rest of the creature
   resolve as the user answers. Cheap conversion mechanic, available for free.
 
-## Open
+## Permanent
 
-- **Can it be changed later?** Not decided. Recommendation: **yes, changeable in the app.** It
-  carries no measured meaning, so nothing downstream breaks, and locking a user forever into a
-  30-second choice made in question 1 is harsh. The counter-argument is that free re-picking
-  turns it into a settings toy.
-- **Priming.** Asking an evocative aesthetic question before the value items may mildly prime
-  the answers that follow. Probably acceptable, but worth checking when the instrument is
-  drafted — placing it *first* is a conversion choice, not a measurement-neutral one.
-- **Correlation with the surface channel.** Users picking fire may skew technological, earth may
-  skew sufficiency. Harmless for correctness, but if element and surface co-vary strongly the
-  avatars lose variety. The mitigation is already in place: the element is ambient-only and
-  never borrows the surface's vocabulary.
+**The element cannot be changed.** Picked once, kept forever — there is no re-pick in settings
+and no cosmetic unlock that overrides it. It is the user's one authored mark on an otherwise
+fully derived avatar, and it means something precisely because it is not adjustable.
+
+The consequence lands on the survey and on the designer, not on the code: **an irreversible
+choice must be an informed one.** The element question has to *show* what each of the four looks
+like — an animated preview of the aura, not four words on buttons. Picking blind and being stuck
+is the one way this decision goes wrong.
+
+## Considered and dismissed
+
+- **Priming.** An evocative aesthetic opener may mildly bias the value answers that follow.
+  Accepted: the conversion gain from an immediate, low-friction first question outweighs a
+  second-order measurement effect.
+- **Element / surface correlation.** Users picking fire will skew technological, earth will skew
+  sufficiency. Accepted: it costs some avatar variety and nothing else. The element stays
+  ambient-only and never borrows the surface's vocabulary, which is enough to keep the two
+  channels from visually merging.

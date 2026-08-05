@@ -29,6 +29,7 @@ One shared **value-axis space**, two clocks:
 | **Sign = identity, magnitude = intensity**; no neutral on any axis; one live vector + sticky `archetypeId`; even base-form count | [`../../decisions/avatar-rendering.md`](../../decisions/avatar-rendering.md) |
 | The designer-facing build spec — visual vocabulary per axis, the parametric (non-catalogue) model, deliverables *(in Spanish)* | [`encargo-diseno-avatar.md`](encargo-diseno-avatar.md) |
 | **The base form never changes without the user accepting it** — stable by default, drift *proposes* a morph, `archetypeId` is sticky | [`../../decisions/archetype-morph-consent.md`](../../decisions/archetype-morph-consent.md) |
+| **The element** — four, user-picked in the first survey questions, renders as the aura's material, carries no value data | [`../../decisions/avatar-element.md`](../../decisions/avatar-element.md) |
 | Implemented axis contract | `packages/shared/src/values/` |
 
 ## Open
@@ -50,6 +51,10 @@ single decision gating the designer commission.
   each other — it runs pre-signup in the funnel, where friction kills conversion, but four axes
   need enough items to carry signal, and **axis 1 needs more than the others** because it alone
   picks a base form that is irreversible by default.
+- **The element question comes first** and is *not* a value item — it carries no axis weights and
+  must not be scored. The pick is **permanent**, so the question must show an animated preview of
+  each aura rather than four labelled buttons
+  ([`../../decisions/avatar-element.md`](../../decisions/avatar-element.md)).
 - This is also where the **axes 3 vs 4 blur risk** gets settled: they are statistically
   orthogonal, but whether a *respondent* can tell them apart can only be answered by drafting
   real items.

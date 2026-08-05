@@ -251,7 +251,11 @@ Debe funcionar sobre las 8 combinaciones sin taparlas ni contradecirlas.
 ## 5b. El elemento → **el material del aura** · DECIDIDO
 
 Cuatro elementos: **fuego, agua, aire, tierra**. Los **elige el usuario** en una de las primeras
-preguntas del cuestionario, y son **lo único que elige**.
+preguntas del cuestionario, son **lo único que elige**, y **no se pueden cambiar nunca más**.
+
+> Como la elección es irreversible, tiene que ser informada: la pregunta debe **enseñar** el aura
+> de cada elemento animada, no ofrecer cuatro palabras en botones. Elegir a ciegas y quedarse
+> atrapado es la única forma en que esto sale mal.
 
 **No son un canal nuevo.** El reloj sigue mandando *cuánta* aura hay; el elemento manda **de qué
 está hecha**:
@@ -280,6 +284,9 @@ el cuerpo, **no se multiplican por forma base** — es lo más barato de todo el
 **Oportunidad:** como se elige en las primeras preguntas, el funnel puede mostrar el aura **ya
 encendida** mientras el resto de la criatura se va resolviendo con las respuestas. El avatar
 empieza a existir antes de terminar la encuesta.
+
+**Entregable añadido:** los cuatro efectos necesitan además una **versión de preview** para la
+pregunta de selección — pequeña, en bucle, legible fuera del contexto de la criatura.
 
 ---
 
@@ -318,6 +325,8 @@ exactamente con el sesgo descrito arriba. Solo si hay que recortar.
 
 1. **Hoja de lenguaje de valores** (§4).
 2. **Paleta y reglas de familia** — lo que comparten todas las formas base.
+3. **Los cuatro efectos de elemento** (§5b) — fuego, agua, aire, tierra. Ambientales, no se
+   multiplican por forma base.
 
 ### Por cada forma base
 
@@ -332,7 +341,7 @@ exactamente con el sesgo descrito arriba. Solo si hay que recortar.
 | 7 | **El acompañante** | ✅ pieza pequeña |
 | 8 | Compañía: polos individual / colectivo (según §5) | instanciar y colocar |
 | 8b | Para cada polo de los ejes 2 y 4: **densidad mínima y máxima** del elemento repetible | reglas de colocación |
-| 9 | **Aura** del reloj | ✅ efecto en capa |
+| 9 | **Aura** del reloj — sus niveles de intensidad | ✅ efecto en capa |
 | 10 | Máquina de estados con las capas cableadas | montaje |
 | 11 | **Hoja de contactos** de verificación (§8) | revisión |
 
@@ -450,8 +459,8 @@ Figura con rostro, de barro remendado, sin jefe, en asamblea. *Una asamblea de b
   ricos que eso.
 - **Legibilidad a tamaño pequeño** — el avatar aparece en listas y perfiles, no solo a pantalla
   completa.
-- **El usuario no elige su aspecto.** Todo se deriva de sus respuestas; no hay personalización
-  manual de los canales de valores.
+- **El usuario elige el elemento y nada más.** Los cuatro canales de valores no tienen
+  personalización manual: se derivan de sus respuestas (§5b).
 
 ---
 
