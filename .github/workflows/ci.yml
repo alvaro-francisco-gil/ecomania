@@ -1,0 +1,54 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Version comes from `packageManager` in package.json — do not pin it a second time here.
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Install workspace
+        run: pnpm install --frozen-lockfile
+
+      # functions/ is npm-managed and outside the pnpm workspace (firebase deploy packages it
+      # on its own), so it needs its own install before the root scripts can reach it.
+      - name: Install functions
+        run: npm --prefix functions ci
+
+      # The shared package is consumed from dist/, so it must be built before the apps typecheck.
+      - name: Build shared
+        run: pnpm --filter @ecomania/shared build
+
+      - name: Typecheck
+        run: pnpm typecheck
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Test
+        run: pnpm test
+
+      # Catches monorepo module-resolution breakage that typecheck cannot see — Metro resolves
+      # differently from tsc, and `.npmrc`'s node-linker setting is what keeps it working.
+      - name: Bundle mobile
+        run: pnpm --filter @ecomania/mobile exec expo export --platform android --output-dir /tmp/expo-export
+
+      - name: Build funnel
+        run: pnpm --filter @ecomania/funnel build
