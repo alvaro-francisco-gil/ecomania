@@ -1,11 +1,25 @@
 /**
- * XP rules — sources, daily caps, the level curve, and the mapping from action to aspect.
+ * The XP economy — the clock.
  *
- * Empty until the numbers are decided (`docs/architecture.md` §10). Note the asymmetry with
- * `../values`: XP is *earned* — capped, idempotent, anti-cheat — while the value vector is
- * *measured*. They are updated by the same submission and share nothing else.
+ * Note the asymmetry with `../values`: XP is **earned** (anti-cheat applies) while the value
+ * vector is **measured** (uncapped, not gameable). The same submission updates both and they
+ * share nothing else. Never fuse them.
  *
- * Whatever lands here is a description of the rules the Cloud Functions enforce. Clients read
- * it to render; they never apply it to a write.
+ * What lives here is a *description* of the rules the Cloud Functions enforce. Clients read it
+ * to render a progress bar; they never apply it to a write. Every XP-bearing mutation is a
+ * callable with an idempotency key, appending to the `xpEvents` ledger.
+ *
+ * Still open: the XP **sources** and their amounts, which depend on the anti-farming design (do
+ * posts and comments earn XP at all, or does XP flow only from finite content?). Until that is
+ * settled, no source table is invented here.
  */
-export {};
+export {
+  BASE_LEVEL_XP,
+  FIRST_LEVEL,
+  LEVEL_GROWTH_RATE,
+  levelFromXp,
+  levelProgress,
+  totalXpForLevel,
+  xpForNextLevel,
+  type LevelProgress,
+} from './levels.js';
