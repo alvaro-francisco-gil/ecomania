@@ -44,7 +44,7 @@ controlled by Firestore rules, not by hiding the config.
 - `@rive-app/react-canvas` renders the same `avatar.riv` the native app uses, driven by the same
   input names from `@ecomania/shared`. Neither renderer gets its own names
   (`rive-avatar-contract`).
-- Never write economy fields (`xp`, `level`, `avatarState`, `aspects`, `counters`, the value
+- Never write economy fields (`xp`, `level`, `avatarState`, `counters`, the value
   vector) from here. Read them; mutate through Cloud Functions callables.
 - The eco-value vector is GDPR special-category data — a shareable OG card must not leak it
   (`values-privacy`).

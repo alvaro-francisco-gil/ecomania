@@ -13,4 +13,4 @@ Keep one row per service module. Update it in the same commit that adds or chang
 
 **Written by** records the trust boundary: `client` for reads and user-owned writes, `function`
 for anything the client may not be trusted with. Economy fields (`xp`, `level`, `avatarState`,
-`aspects`, `counters`, the eco-value vector) are always `function`.
+`counters`, the eco-value vector) are always `function`.

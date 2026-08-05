@@ -60,7 +60,7 @@ link resolve — it is part of the funnel→app handoff (`funnel-handoff`), not 
 
 ## Constraints
 
-- Never write economy fields (`xp`, `level`, `avatarState`, `aspects`, `counters`, the value
+- Never write economy fields (`xp`, `level`, `avatarState`, `counters`, the value
   vector) from the client. Read them; mutate through Cloud Functions callables.
 - `FlatList` for any growing list, with real loading and error states (root AGENTS.md, §5).
 - Reanimated 4's Babel plugin is `react-native-worklets/plugin` and must stay **last** in

@@ -50,7 +50,7 @@ effects, preconditions, "use X instead".
 6. **Reuse first.** Check `packages/shared` and the app's components/hooks before writing new code.
 
 ## The economy invariant — non-negotiable from day one
-Clients **NEVER** write `xp`, `level`, `avatarState`, `aspects`, `counters`, or the
+Clients **NEVER** write `xp`, `level`, `avatarState`, `counters`, or the
 eco-**value vector**. All such mutations go through Cloud Functions (`functions/`) with an
 **idempotency key**, landing a row in the append-only `xpEvents` ledger. Firestore rules
 enforce the client denial, and a rules test must prove it **before** any economy collection

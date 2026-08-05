@@ -11,5 +11,5 @@ What it will encode:
 - Rive input and data-binding names live as shared constants in `packages/shared` — never hardcoded in either renderer.
 - The app (`rive-react-native`) and funnel (`@rive-app/react-canvas`) renderers move in lockstep off those constants.
 - Renaming or removing an input is a contract change: a dedicated PR updating the constant + both renderers + the `.riv` asset together, never a silent rename.
-- How avatar state (level, value vector, aspects) maps onto Rive inputs.
+- How avatar state (value vector, level, element) maps onto Rive inputs via `computeAvatarInputs()`. There are no activity aspects.
 - Verifying parity between the two renderers before merge.

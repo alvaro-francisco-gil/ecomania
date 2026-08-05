@@ -11,7 +11,7 @@ description: Feature-driven TDD with vertical RED→GREEN→REFACTOR per behavio
 
 **Tests verify behavior through public interfaces, not implementation details.** Code can change entirely; tests shouldn't. A test that fails when you rename a private helper but the user-visible behavior didn't change is a bad test.
 
-**Good test:** "Awarding XP for a completed eco-action applies the action's aspect weight and respects the daily cap." — reads like a spec, survives refactors.
+**Good test:** "Submitting a questionnaire awards its declared XP once, even when the request is retried with the same idempotency key." — reads like a spec, survives refactors.
 
 **Bad test:** asserts an internal helper was called with arg X — implementation detail, breaks on refactor, doesn't prove anything about behavior.
 

@@ -50,15 +50,16 @@ DESIGN THIS (the native app's UX):
 2. Screen inventory + the core gameplay LOOPS as flows — especially "do an action → earn XP →
    the avatar visibly reacts/grows → get notified". Make the reward loop feel juicy.
 3. Wireframes of the key screens: home/avatar, the feed, a topical-questionnaire flow, the
-   action→reward moment, profile (with the three avatar drivers: archetype, aspects, value
-   vector), leaderboard, invite/referral.
+   action→reward moment, profile (showing the avatar's drivers: base form, value vector, level
+   and element), leaderboard, invite/referral.
 4. The visual design system + MOTION LANGUAGE — what is Rive (the avatar), what is Lottie
    (one-shot juice), what is code-driven (UI micro-interactions). See docs/rive-and-animation.md.
 
 RESPECT THESE CONSTRAINTS:
 - The Rive avatar is the hero; design around it reacting to actions. It's driven by numeric
-  inputs (archetype/base form, three "aspects" = voice/knowledge/community growth, and a live
-  value vector for palette/aura/stance) plus triggers (xpPulse, levelUpBurst).
+  inputs: the value vector drives surface/companions/geometry, the XP clock drives the aura's
+  intensity, and the user-picked element drives the aura's material. Plus triggers (xpPulse,
+  levelUpBurst). There are no activity aspects.
 - The economy is server-authoritative — UI displays XP/level/avatar state, never authors it.
 - Scale-day-1: virtualized feeds, loading/error states.
 - Eco-values are GDPR special-category data — be careful about showing them publicly.

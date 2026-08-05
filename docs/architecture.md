@@ -68,10 +68,10 @@ inputs / data-binding on one `.riv` file:
    **proposes a morph** (a transformation ceremony) that the **user accepts or declines** —
    user-consented evolution, never automatic. *(Decided 2026-06-28; "drift far enough" + the
    proposal UX are part of the creative-core exploration.)*
-2. **Aspects** — activity volume in three dimensions, each growing different parts:
-   `voice` (posting), `knowledge` (surveys/questionnaires), `community` (comments/referrals).
-3. **Value vector** — the evolving eco-identity (see §5); drives surface, companions and body
+2. **Value vector** — the evolving eco-identity (see §5); drives surface, companions and body
    geometry.
+3. **The clock** — XP and level (see §6); drives the aura's *intensity*. The only system that
+   goes up rather than sideways.
 4. **Element** — fire / water / air / earth, **the one thing the user picks**, in the first
    questions of the onboarding survey. It carries *no* value information and never touches the
    body: it is the **material of the aura** (embers, droplets, motes, dust) while the XP clock
@@ -165,11 +165,12 @@ the sign at full strength from the first answer (§4).
 - **No daily caps — supply is the cap.** XP-bearing content arrives on a **global content
   calendar**, the same items for everyone. You cannot farm a questionnaire that has not been
   published. The consequence is that editorial output bounds economic throughput.
-- **Aspects.** `voice` / `knowledge` / `community` are counters, not levels — they drive visual
-  carriers so *how* you play shapes *how* the avatar grows. Only `knowledge` has a source today.
+- **No aspects.** `voice` / `knowledge` / `community` were removed 2026-08-06 — two of the three
+  had no source, and the third was numerically identical to the XP total. The clock and the
+  value vector are the whole model.
 - **Server-authoritative & append-only.** Every XP-bearing action is a callable Function with
   an **idempotency key**; it appends to the `xpEvents` ledger. Clients never write
-  `xp`/`level`/`avatarState`/`aspects`/`counters`. Firestore rules + a rules test enforce the
+  `xp`/`level`/`avatarState`/`counters`. Firestore rules + a rules test enforce the
   denial.
 
 Full rationale and the rejected alternatives: [`docs/decisions/xp-economy.md`](decisions/xp-economy.md).
@@ -209,7 +210,7 @@ do everything else with code + Lottie, where the team moves fast with AI. Detail
 3. Reveal: live avatar (@rive-app/react-canvas) + shareable OG card
 4. CTA "Continue in app" → deep link ecomania://claim?anon=<token>
 5. App signup → Function LINKS the anon account → survey + avatar carry over (zero re-entry)
-6. ?invite=<code> rides along → claimReferral credits referrer's community aspect + FCM
+6. ?invite=<code> rides along → claimReferral credits the referrer + FCM
 ```
 
 Invariant: **never make the user redo the survey after install.**

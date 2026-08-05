@@ -73,9 +73,10 @@ commission is no longer blocked on this.
 - **News as a third write path.** Only questionnaires currently move the vector. If reacting to
   a news item also nudges it, it needs a *much* smaller weight than a deliberate answer — and
   should probably not raise the answered count at all.
-- **Aspect carriers.** `voice`, `knowledge` and `community` have no visual home yet.
-  `community` depends on what axis 3 takes; the candidate left for it is the *movement* of the
-  companions (dormant ↔ bustling), which is disjoint from their number.
+- ~~**Aspect carriers.**~~ **Closed 2026-08-06 by removing the aspects entirely.** Two of the
+  three had no source and the third duplicated the XP total. The avatar's live systems are the
+  value vector and the clock, plus the user-picked element
+  ([`../../decisions/xp-economy.md`](../../decisions/xp-economy.md)).
 - **Privacy beyond copy balance:** explicit consent before collection, what is exposed to other
   users (archetype yes, raw vector no), telemetry that must not leak it, export/delete.
 - **Funnel → app handoff:** how the anonymous visitor's vector crosses into the account without

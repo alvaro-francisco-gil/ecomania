@@ -27,9 +27,11 @@ Because the output is consumed by both a Next.js bundler and Metro, relative imp
   `@rive-app/react-canvas` (funnel).
 - `src/values/` — ✅ **the value-axis contract.** Four locked axes, the vector type, and the
   moving-average nudge.
-- `src/economy/` — XP rules: sources, daily caps, level curve, aspect mapping. _Empty — blocked
-  on the XP numbers._
-- `assets/` — `avatar.riv`, the single file both renderers load. _Not landed yet._
+- `src/economy/` — ✅ **the XP clock.** The level curve. No source table: each questionnaire
+  declares its own XP value, and there are no daily caps — supply is the cap
+  (`docs/decisions/xp-economy.md`).
+- `assets/` — the `.riv` files both renderers load. Currently only `avatar.sample.riv`, a
+  placeholder; `avatar.person.riv` and `avatar.tree.riv` are commissioned, not delivered.
 
 An empty barrel is a **statement**, not an oversight: the shape is blocked on a decision
 recorded in `docs/architecture.md` §10. Don't invent a type to unblock yourself — resolve the

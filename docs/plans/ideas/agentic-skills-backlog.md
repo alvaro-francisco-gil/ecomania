@@ -39,7 +39,7 @@ is worse than no skill. **Write each from a procedure that has actually been run
 
 | Skill | Encodes |
 |---|---|
-| `awarding-xp` ⭐ | server-authoritative XP: callable + idempotency key + daily caps + `xpEvents` ledger + aspect mapping |
+| `awarding-xp` ⭐ | server-authoritative XP: callable + idempotency key + `xpEvents` ledger + the level curve. No daily caps and no aspects — supply is the cap (`docs/decisions/xp-economy.md`) |
 | `rive-avatar-contract` ⭐ | Rive input names as shared constants; app + funnel renderers in lockstep |
 | `funnel-handoff` ⭐ | anon-auth → deep link → account-link; never redo the survey |
 | `topical-questionnaire` | versioned questionnaires + value-axis weights; value-vector update decoupled from XP |

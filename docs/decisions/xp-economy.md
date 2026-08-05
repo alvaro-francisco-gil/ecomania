@@ -35,9 +35,10 @@ inform and to give the feed something to be about. Only questionnaires measure a
 fixed globally, so a ten-question deep dive can be worth more than a quick take without a
 separate rule.
 
-**One level, three aspect counters.** `voice` / `knowledge` / `community` accumulate in parallel
-and drive their own visual carriers, but they do not have levels of their own. There is a single
-XP total, a single curve, and a single number for leaderboards and the aura.
+**One level, and no aspects at all.** `voice` / `knowledge` / `community` are **removed**
+(2026-08-06). There is a single XP total, a single curve, and a single number for leaderboards
+and the aura. The avatar has exactly two live systems — the value vector and the clock — plus
+the element the user picks.
 
 ## Consequences
 
@@ -54,10 +55,14 @@ XP total, a single curve, and a single number for leaderboards and the aura.
 - **The aura mapping is deliberately not decided here.** `computeAvatarInputs` takes
   `auraIntensity` as a parameter. The level→aura curve waits on the animator, and lives in this
   package when it lands rather than inside a rendering function.
-- **`knowledge` is currently the only aspect with an XP source.** `voice` and `community` are
-  fed by posting, commenting and referrals, none of which exist. Until they do, those two
-  counters stay at zero — which is honest, not broken, but means the "how you play shapes how it
-  grows" promise is only a third alive.
+- **Two body properties are freed.** The aspects had been assigned companion *movement* plus two
+  body properties as visual carriers. Those are now unclaimed, and the designer commission
+  shrinks accordingly — one less system to author, verify across combinations, and keep from
+  colliding with the value channels.
+- **"How you play shapes how it grows" is gone as a promise.** The avatar now says *what you
+  believe* (vector) and *how much you have played* (clock), and nothing about the manner of
+  play. That was the second retention engine in the original sketch; it is deliberately not
+  being replaced.
 
 ## Rejected alternatives
 
@@ -76,12 +81,21 @@ XP total, a single curve, and a single number for leaderboards and the aura.
   reaction tier would have given a daily-habit surface, but reactions that earn XP without
   measuring anything are pure grind, and reactions that nudge the vector let casual taps drown
   out considered answers in a GDPR special-category measurement.
+- **Keeping the three aspects.** They were meant to make *how* you play visible: a quiz-taker and
+  a debater growing different parts of the creature. Two problems killed it. `voice` and
+  `community` are fed by posting, commenting and referrals — none of which exist — so they would
+  have been permanently zero. And `knowledge` is fed only by questionnaires, which are the only
+  XP source, so it would have been **numerically identical to the XP total**: two systems
+  carrying one signal, with the designer paying for both. Reintroducing them is additive if
+  social features ever ship, since the body properties stay unclaimed.
 
 ## Revisit when
 
-- **Posts, comments or referrals ship.** They are unbounded by nature, so the supply-as-cap
-  argument does not cover them. Either they earn no XP, or per-source caps come back for those
-  sources specifically. Decide before they ship, not after.
+- **Posts, comments or referrals ship.** Two things come back at once. They are unbounded by
+  nature, so the supply-as-cap argument does not cover them — either they earn no XP, or
+  per-source caps return for those sources specifically. And they are what the aspects existed
+  to measure, so "how you play shapes how it grows" becomes buildable again. Decide both before
+  they ship, not after.
 - **Real engagement data exists.** The open empirical question is whether 8% feels right in play.
   It is one constant, but it is a migration after launch.
 - **The animator specifies the aura.** That is what unblocks the level→aura mapping.
