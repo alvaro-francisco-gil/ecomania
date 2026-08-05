@@ -64,12 +64,22 @@ describe('levelFromXp and totalXpForLevel agree', () => {
 
 describe('the shape is what was decided', () => {
   it('reaches level 10 quickly enough to hook', () => {
-    // A handful of actions' worth, not a grind.
+    // A handful of questionnaires' worth, not a grind.
     expect(totalXpForLevel(10)).toBeLessThan(2_500);
   });
 
-  it('makes level 50 a genuine investment', () => {
-    expect(totalXpForLevel(50)).toBeGreaterThan(50 * totalXpForLevel(10));
+  it('makes a late level cost far more than an early one', () => {
+    expect(xpForNextLevel(49) / xpForNextLevel(9)).toBeGreaterThan(15);
+  });
+
+  it('keeps level 50 reachable — the reason 15% was rejected', () => {
+    // At 15% this was 627,541: a wall, not a goal.
+    expect(totalXpForLevel(50)).toBeLessThan(100_000);
+  });
+
+  it('keeps level 100 a real destination rather than a theoretical one', () => {
+    // At 15% this was 680 million.
+    expect(totalXpForLevel(100)).toBeLessThan(5_000_000);
   });
 });
 

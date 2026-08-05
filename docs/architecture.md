@@ -144,7 +144,7 @@ drives scoring and which axis to ask about next; it does **not** damp the avatar
 the sign at full strength from the first answer (§4).
 
 **Critical separations:**
-- **XP vs values.** Completing a questionnaire *earns XP* (capped, anti-cheat) **and
+- **XP vs values.** Completing a questionnaire *earns XP* (supply-limited, see §6) **and
   separately** *measures* your value shift. The value update is not gameable and not capped —
   it's a measurement, not a reward.
 - **Values are GDPR special-category data** (ecological/political stance). Explicit consent,
@@ -155,16 +155,24 @@ the sign at full strength from the first answer (§4).
 
 ## 6. The gamification economy
 
-- **XP sources** (each with a daily cap): onboarding survey, answer a topical questionnaire,
-  create post, comment, receive like, daily streak, **referral converted**.
-- **Aspects.** Each source feeds one aspect (`voice` / `knowledge` / `community`), so *how*
-  you play shapes *how* the avatar grows.
-- **Referral mechanic** (native to the product): a converted referral levels up the referrer's
-  `community` aspect + fires FCM — the avatar visibly grows from inviting friends.
+- **One level, uncapped**, on a geometric curve at 8% per level from a 100 XP base. Implemented
+  in `packages/shared/src/economy/`. Level 10 ≈ 1,250 XP, level 50 ≈ 53,000.
+- **XP sources today: the onboarding survey and topical questionnaires.** Each questionnaire
+  declares its own XP value. Posts, comments, likes and referrals do not exist yet and earn
+  nothing.
+- **News carries no XP and does not touch the value vector.** It informs; questionnaires measure
+  and reward.
+- **No daily caps — supply is the cap.** XP-bearing content arrives on a **global content
+  calendar**, the same items for everyone. You cannot farm a questionnaire that has not been
+  published. The consequence is that editorial output bounds economic throughput.
+- **Aspects.** `voice` / `knowledge` / `community` are counters, not levels — they drive visual
+  carriers so *how* you play shapes *how* the avatar grows. Only `knowledge` has a source today.
 - **Server-authoritative & append-only.** Every XP-bearing action is a callable Function with
-  an **idempotency key**; it appends to the `xpEvents` ledger and enforces caps there. Clients
-  never write `xp`/`level`/`avatarState`/`aspects`/`counters`. Firestore rules + a rules test
-  enforce the denial.
+  an **idempotency key**; it appends to the `xpEvents` ledger. Clients never write
+  `xp`/`level`/`avatarState`/`aspects`/`counters`. Firestore rules + a rules test enforce the
+  denial.
+
+Full rationale and the rejected alternatives: [`docs/decisions/xp-economy.md`](decisions/xp-economy.md).
 
 ---
 

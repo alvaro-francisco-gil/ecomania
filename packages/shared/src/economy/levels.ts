@@ -1,10 +1,10 @@
 /**
  * The level curve — the XP clock.
  *
- * Uncapped and geometric: each level costs ~15% more than the one before. Levels 1–10 arrive
- * fast enough to hook, and by level 50 each one is a real investment. There is no maximum, so
- * the most engaged users are never stranded at a ceiling and the aura always has a next step to
- * grow into.
+ * Uncapped and geometric: each level costs 8% more than the one before, doubling roughly every
+ * nine levels. Levels 1–10 arrive fast enough to hook (~1,250 XP), level 50 is a long-term goal
+ * at ~53,000, and there is no maximum — so the most engaged users are never stranded at a
+ * ceiling and the aura always has a next step to grow into.
  *
  * The whole curve is two constants. Retuning is a one-line change — but it silently moves every
  * existing user's level, so treat a change to either as a migration with a communication plan,
@@ -14,8 +14,14 @@
 /** XP required to go from level 1 to level 2. Every later step scales from this. */
 export const BASE_LEVEL_XP = 100;
 
-/** Each level costs this multiple of the previous one. */
-export const LEVEL_GROWTH_RATE = 1.15;
+/**
+ * Each level costs this multiple of the previous one.
+ *
+ * 8% was chosen over a steeper 15%, which compounds to 627k XP at level 50 and 680M at level
+ * 100 — a wall rather than a progression. The early game is indistinguishable between the two;
+ * the difference is entirely in whether the late game exists.
+ */
+export const LEVEL_GROWTH_RATE = 1.08;
 
 /** Levels start at 1 — a user with 0 XP is level 1, never level 0. */
 export const FIRST_LEVEL = 1;

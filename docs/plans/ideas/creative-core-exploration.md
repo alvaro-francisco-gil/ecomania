@@ -42,8 +42,10 @@ base form**. Note archetype count is *not* base-form count: only axis 1 forces a
 channels and motif. Anchors for four of them come free from the axis 3 × 4 plane (Cultural
 Theory's myths of nature).
 
-**Blocked on:** how many base forms to pay for — 2 or 4, and 2 is recommended. This is the
-single decision gating the designer commission.
+**Resolved 2026-08-05: two base forms** — a person (anthropocentric, with a face) and a tree
+(ecocentric, faceless). Implemented as a data registry in `packages/shared/src/avatar/`, so
+growing to four is entries plus `.riv` files with no change to the selection rule. The designer
+commission is no longer blocked on this.
 
 ### 2. Survey instrument
 

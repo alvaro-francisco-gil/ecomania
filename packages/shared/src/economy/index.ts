@@ -9,9 +9,16 @@
  * to render a progress bar; they never apply it to a write. Every XP-bearing mutation is a
  * callable with an idempotency key, appending to the `xpEvents` ledger.
  *
- * Still open: the XP **sources** and their amounts, which depend on the anti-farming design (do
- * posts and comments earn XP at all, or does XP flow only from finite content?). Until that is
- * settled, no source table is invented here.
+ * **There are no daily caps — supply is the cap.** XP-bearing content arrives on a global
+ * content calendar, the same items for everyone, so there is nothing to farm: you cannot answer
+ * a questionnaire that has not been published. That removes the whole per-source cap table.
+ * It also means editorial output bounds economic throughput
+ * (`docs/decisions/xp-economy.md`).
+ *
+ * No source table lives here, and that is deliberate: **each questionnaire declares its own XP
+ * value**, so the amount is content, not a constant. News carries no XP and never touches the
+ * value vector. Posts, comments and referrals do not exist yet — when they do, they are
+ * unbounded by nature and the supply-as-cap argument will not cover them.
  */
 export {
   BASE_LEVEL_XP,
