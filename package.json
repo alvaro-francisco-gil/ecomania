@@ -5,7 +5,17 @@
   "packageManager": "pnpm@10.24.0",
   "description": "Gamified ecology social app — eco-survey → evolving ecoavatar → social leveling. Web funnel + native game.",
   "scripts": {
+    "typecheck": "pnpm -r run --if-present typecheck && npm --prefix functions run typecheck",
+    "lint": "pnpm -r run --if-present lint && npm --prefix functions run lint",
+    "test": "pnpm -r run --if-present test && npm --prefix functions test",
+    "build": "pnpm -r run --if-present build && npm --prefix functions run build",
+    "prepare": "husky",
     "ralph:once": "bash ralph/once.sh",
     "ralph:afk": "bash ralph/afk.sh"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^21.2.1",
+    "@commitlint/config-conventional": "^21.2.0",
+    "husky": "^9.1.7"
   }
 }

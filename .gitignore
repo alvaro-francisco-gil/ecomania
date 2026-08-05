@@ -5,6 +5,7 @@ node_modules/
 # Builds / caches
 dist/
 build/
+functions/lib/
 .next/
 .expo/
 .turbo/
