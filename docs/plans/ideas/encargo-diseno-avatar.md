@@ -9,9 +9,10 @@ decisión), [`projects/value-system.md`](../../projects/value-system.md) (la fun
 académica de los ejes) y [`rive-and-animation.md`](../../rive-and-animation.md) (el flujo de
 trabajo en Rive).
 
-> **Estado: borrador de encargo.** Todo lo marcado **DECIDIDO** es firme. Lo marcado
-> **ABIERTO** es decisión del diseñador o está pendiente. Antes de encargar hay que cerrar
-> el número de formas base (§9).
+> **Estado: listo para encargar.** Todo lo marcado **DECIDIDO** es firme. Lo marcado
+> **ABIERTO** es decisión del diseñador. El número de formas base —lo único que bloqueaba— está
+> cerrado en **dos** (§9), y el sistema de aspectos de actividad se ha **eliminado**, así que los
+> acompañantes son enteramente del eje 3 (§5). Estado completo en §13.
 
 ---
 
@@ -153,10 +154,38 @@ aunque no sea un dibujo.
 Cada forma base es un `.riv` distinto: criatura distinta, rig distinto. Se distinguen por dos
 marcadores combinados:
 
-| | **Reino** | **Rostro** |
-|---|---|---|
-| **− Antropocéntrico** | construido, geométrico, humanoide | **tiene cara**, ojos frontales |
-| **+ Ecocéntrico** | vegetal, fúngico, colonial | **sin rostro** |
+**Son dos** (§9), una por polo — **persona** y **árbol**:
+
+| | Criatura | **Rostro** | `id` en código |
+|---|---|---|---|
+| **− Antropocéntrico** | **una persona** | **tiene cara**, ojos frontales | `person` |
+| **+ Ecocéntrico** | **un árbol** | **sin rostro** | `tree` |
+
+El **rostro** es el marcador clave: perder la cara *es* perder el marco humano. Un árbol no
+invita a proyectarse en él, y eso es exactamente lo que dice el polo ecocéntrico.
+
+> ### ⚠️ La persona tiene que ser *una* persona, no *esa* persona
+>
+> Esto es lo más delicado del encargo. **Una sola figura humana representa a la mitad de tus
+> usuarios**, y el sistema **no tiene personalización**: nadie puede ajustar tono de piel,
+> género ni complexión, porque lo único que el usuario elige es su elemento (§5b). Si la figura
+> lee como una persona concreta, la otra mitad de esa mitad no se reconoce en ella.
+>
+> La salida es **estilizar hasta lo genérico, no dibujar a alguien**:
+>
+> - **Material no-piel** — barro, porcelana, piedra, madera clara. Un tono que no sea de ninguna
+>   etnia porque no es piel en absoluto.
+> - **Rasgos abstraídos** — ojos y presencia, sin nariz/boca/pelo detallados que fijen una
+>   identidad.
+> - **Silueta neutra** — ni musculada ni curvada; proporción de figura, no de cuerpo concreto.
+> - **Sin ropa que marque género, cultura o época.**
+>
+> El listón: alguien tiene que poder mirarla y pensar *"esa soy yo"* sin que la figura se parezca
+> a nadie. Es la misma razón por la que los muñecos de LEGO son amarillos.
+>
+> Cuidado además con §12: **el polo antropocéntrico no puede verse peor que el ecocéntrico.** Un
+> árbol es encantador sin esfuerzo; una figura humana genérica puede quedar sosa muy fácilmente.
+> Este par necesita más cariño en el lado de la persona, no menos.
 
 El **rostro** es el marcador clave: perder la cara *es* perder el marco humano. Una criatura
 sin rostro no invita a proyectarse en ella, y eso es exactamente lo que dice el polo
@@ -217,14 +246,10 @@ legibilidad del avatar a tamaño pequeño.
 > tiene que poder intensificarse. *Estar solo* debe verse tan diseñado y tan digno como *ser
 > legión*.
 
-> **Consecuencia a tener en cuenta.** El aspecto `community` (actividad social real del usuario
-> en la app) también quiere expresarse en los acompañantes. **El eje 3 elige primero** — es
-> valor, y el valor manda sobre la actividad. Lo que quede libre es para `community`.
->
-> La salida limpia, si el eje 3 se lleva número y conexión, es que `community` se lleve el
-> **movimiento**: la misma composición de acompañantes, pero **dormida ↔ bulliciosa** (ritmo,
-> órbita, agitación). Estructura vs movimiento son propiedades genuinamente disjuntas, así que
-> siguen componiendo sin pelearse. Decisión pendiente — §13.
+> **Buena noticia (2026-08-06):** el eje 3 tiene los acompañantes **enteros para él**. Antes
+> competía con un contador de actividad social (`community`), que se llevaba el movimiento y
+> obligaba a repartir. Ese sistema **se ha eliminado**, así que número, conexión *y* movimiento
+> son todos tuyos y puedes usarlos como quieras para expresar el eje.
 
 ### Eje 4 — tecnocrático ↔ grassroots → **la geometría del cuerpo** · DECIDIDO
 
@@ -333,7 +358,7 @@ exactamente con el sesgo descrito arriba. Solo si hay que recortar.
 | # | Entregable | ¿Dibujo nuevo? |
 |---|---|---|
 | 1 | **La criatura**, completa y riggeada (estado de construcción, §6) | ✅ **la ilustración principal** |
-| 2 | `idle` + `blink` — vida basal | animación |
+| 2 | **Vida basal** — el bucle que demuestra que está viva (§7b) | animación |
 | 3 | Superficie: polo **manufacturado** + su elemento repetible (faceta/panel) | recolor/retextura |
 | 4 | Superficie: polo **remendado** + su elemento repetible (parche) | recolor/retextura |
 | 5 | Geometría: polo **jerárquico** + su elemento repetible (módulo subordinado) | recolocar el rig |
@@ -349,6 +374,25 @@ exactamente con el sesgo descrito arriba. Solo si hay que recortar.
 esos mismos dibujos.
 
 ---
+
+## 7b. Vida basal — cada criatura respira a su manera
+
+El bucle en reposo es lo que separa "un dibujo" de "un ser". Pero **las dos formas base no
+pueden compartir vocabulario**, porque una tiene cara y la otra no:
+
+| | **Persona** | **Árbol** |
+|---|---|---|
+| Bucle principal | respiración — hombros y pecho | balanceo — el tronco cede y vuelve |
+| Micro-gesto | **parpadeo**, mirada que se desvía | **susurro de hojas**, una rama que rebota |
+| Peso | apoyo que cambia de pierna | raíces fijas; todo el movimiento es arriba |
+| Ritmo | rápido e irregular, animal | lento y continuo, con inercia |
+
+Un árbol sin rostro **no puede parpadear**, y una persona quieta como un tronco parece congelada.
+Si se autora un solo bucle genérico para las dos, una de las dos sale a medias — y como cada una
+representa a la mitad de los usuarios, "a medias" es la mitad del producto.
+
+El listón es el mismo para las dos: **con el usuario mirando sin tocar nada, la criatura tiene
+que parecer que está a punto de hacer algo.**
 
 ## 8. Verificación: la hoja de contactos
 
@@ -375,29 +419,28 @@ Todo tiene que sostenerse **a tamaño pequeño** y **con el aura encima**, en to
 
 ---
 
-## 9. ⚠️ PENDIENTE — cuántas formas base
+## 9. Cuántas formas base — DOS · DECIDIDO
 
-**Decisión de producto, no del diseñador. Bloquea el encargo.**
-
-Cada forma base multiplica entera la tabla de §7 (columna "por cada forma base"). Lo que **no**
-se multiplica es la hoja de lenguaje ni los props — que es justo lo que da coherencia de
-familia, y por eso ampliar más tarde sale barato.
+**Dos: la persona y el árbol** (§5). Ya implementadas como registro de datos en
+`packages/shared/src/avatar/baseForms.ts`, con un test que impide que el número deje de ser par.
 
 **Tiene que ser un número par**, mitad a cada lado del eje: con un número impar la forma de en
 medio sería un neutro encubierto, y no hay neutros en ningún eje (§3).
 
 | | Reparto del eje 1 | Coste |
 |---|---|---|
-| **2** (recomendado para empezar) | construido *con rostro* · orgánico *sin rostro* | base |
-| **4** | construido · animal │ vegetal · fúngico-colonial | ×2 |
+| **2** — el actual | persona *con rostro* · árbol *sin rostro* | base |
+| **4** — ampliación futura | persona · animal │ árbol · hongo-colonia | ×2 |
 
-Con 4, la **magnitud** elige cuál de las dos de tu lado te toca — misma regla que los demás
-ejes. Con 2, basta el signo.
+Cada forma base multiplica entera la columna "por cada forma base" de §7. Lo que **no** se
+multiplica es la hoja de lenguaje, los props ni los cuatro efectos de elemento — que es justo lo
+que da coherencia de familia, y por eso ampliar sale barato.
 
-**Recomendación: empezar con 2.** Es el reparto más barato, el más legible (cara ↔ sin cara, no
-hay ambigüedad posible) y el que permite validar antes si el eje 1 discrimina de verdad en la
-población de ecomania. Pasar a 4 más tarde es puramente aditivo: las dos criaturas existentes
-se quedan como el extremo de su lado.
+**Crecer a 4 es puramente aditivo:** entradas nuevas en el registro más sus `.riv`, sin tocar la
+regla de selección. Las dos criaturas actuales se quedan como el extremo de su lado, y la
+**magnitud** pasa a elegir cuál de las dos de tu lado te toca — la misma regla de
+signo=identidad / magnitud=intensidad que ya usan los demás ejes. Se hará cuando haya datos
+reales que confirmen que el eje 1 discrimina en la población de ecomania.
 
 ---
 
@@ -426,21 +469,23 @@ se quedan como el extremo de su lado.
 
 Ninguno de estos está dibujado. Los cuatro salen de la criatura + las variantes de polo.
 
-**🌿 Suficiencia + colectivo + grassroots, sobre base vegetal-fúngica**
-Un hongo sin rostro, de fibra tejida con remiendos visibles, sin parte dominante —todos sus
-lóbulos equivalentes— rodeado de esporas hijas. *Un comunero micelial.*
+**🌳 EL ÁRBOL · suficiencia + colectivo + grassroots**
+Un árbol de corteza tejida con remiendos visibles, sin copa dominante —todas sus ramas
+equivalentes, creciendo en todas direcciones— rodeado de un enjambre de esporas. Aura de tierra:
+polvo en suspensión. *Un comunero enraizado.*
 
-**🏙 Tecnológico + individual + tecnocrático, sobre base construida**
-Una figura con rostro, superficie sin costuras que emite luz propia, sola, con una corona
-claramente rectora y simetría bilateral perfecta. *Un tecnócrata luminoso.*
+**🧍 LA PERSONA · tecnológico + individual + tecnocrático**
+Una figura de porcelana sin costuras que emite luz propia, sola, contorno cerrado, con la cabeza
+claramente rectora y simetría bilateral perfecta. Aura de fuego: ascuas. *Una tecnócrata
+luminosa.*
 
-**⚡ Contradictoria — ecocéntrico + tecnológico + colectivo + tecnocrático**
-Organismo vegetal sin rostro, de vidrio pulido luminoso, con acompañantes **en formación
-simétrica** bajo una parte rectora. *Un jardín de cristal regimentado.* Raro pero coherente —
-de los que hay que revisar en la hoja de contactos.
+**⚡ Contradictoria — EL ÁRBOL · tecnológico + colectivo + tecnocrático**
+Árbol de vidrio pulido luminoso, con acompañantes **en formación simétrica** bajo una copa
+rectora. *Un jardín de cristal regimentado.* Raro pero coherente — de los que hay que revisar en
+la hoja de contactos.
 
-**🔨 Contradictoria — antropocéntrico + suficiencia + colectivo + grassroots**
-Figura con rostro, de barro remendado, sin jefe, en asamblea. *Una asamblea de barro.*
+**🔨 Contradictoria — LA PERSONA · suficiencia + colectivo + grassroots**
+Figura de barro remendado, sin parte que mande, en asamblea. *Una asamblea de barro.*
 
 ---
 
@@ -466,11 +511,11 @@ Figura con rostro, de barro remendado, sin jefe, en asamblea. *Una asamblea de b
 
 ## 13. Abierto / pendiente
 
-| # | Qué | De quién es |
-|---|---|---|
-| 1 | **Cuántas formas base** (§9) | producto — **bloquea** |
-| 2 | **Vocabulario del eje 3** (A / B / C o mezcla) **y si es discreto o continuo** (§5) | diseñador |
-| 3 | Portadores de los aspectos `voice`, `knowledge` y `community` — sin asignar. `community` depende de lo que elija el eje 3; candidato: el **movimiento** de los acompañantes (§5). Ojo con el punto muerto: si el polo individual deja **cero** acompañantes, `community` se queda sin nada que animar para los usuarios individualistas — o se garantiza un mínimo de uno, o `community` tiene que apoyarse también en el cuerpo | producto + diseñador |
-| 4 | Taxonomía de arquetipos: nombres, motivos, y cuáles comparten forma base | producto |
-| 5 | Niveles del aura y su progresión | producto + diseñador |
-| 6 | Nombres definitivos de los inputs (§10) | desarrollo |
+| # | Qué | De quién es | Estado |
+|---|---|---|---|
+| 1 | **Cuántas formas base** (§9) | producto | ✅ **DOS** (2026-08-05): una persona *con rostro* (antropocéntrico) y un árbol *sin rostro* (ecocéntrico). El encargo ya no está bloqueado. |
+| 2 | **Vocabulario del eje 3** (A / B / C o mezcla) **y si es discreto o continuo** (§5) | diseñador | ⬜ abierto — y ahora con los acompañantes enteros a su disposición (§5) |
+| 3 | Portadores de los aspectos `voice` / `knowledge` / `community` | — | ✅ **ELIMINADO** (2026-08-06). El sistema de aspectos ya no existe: dos de los tres no tenían fuente y el tercero era idéntico al total de XP. El avatar tiene exactamente dos sistemas vivos — el vector de valores y el reloj — más el elemento. **Menos trabajo para el encargo.** [`../../decisions/xp-economy.md`](../../decisions/xp-economy.md) |
+| 4 | Taxonomía de arquetipos: nombres y motivos | producto | 🔸 esquema decidido — **16 nombres**, derivados del signo de los cuatro ejes, y el nombre cambia cuando cambia el avatar. Falta escribirlos. |
+| 5 | Niveles del aura y su progresión | producto + animador | ⬜ abierto — deliberadamente pospuesto hasta que el animador opine. El código pasa la intensidad como parámetro, así que no bloquea nada. |
+| 6 | Nombres definitivos de los inputs (§10) | desarrollo | ✅ implementados en `packages/shared/src/avatar/`: `surface` · `companions` · `geometry` · `aura`. Contrato congelado. |
