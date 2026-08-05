@@ -4,9 +4,11 @@ Companion to `creative-core-exploration.md`, but built **from scratch off the
 environmental-values literature** rather than the original straw-men. This doc holds the
 research-grounded axis set and the open reflection on which **4th axis** to add.
 
-> Status: exploration. Axes 1–3 are the working basis (high mutual independence, each
-> backed by multiple validated frameworks). The 4th axis is **undecided** — this doc
-> compares the candidates.
+> **Status: RESOLVED (2026-08-05).** The 4th axis is **Candidate A —
+> Technocratic ↔ Grassroots** (the "grid" dimension). Candidate B (Reformist↔Radical) powers
+> the **intensity clock**, not an axis. Candidate C (Local↔Global) is **dropped** — too close
+> to the grid axis to earn its own slot. **The value space is 4 axes. There is no 5th.**
+> The comparison below is kept as the reasoning behind that call.
 
 ---
 
@@ -124,19 +126,27 @@ on the diagonal (grassroots-local ↔ technocratic-global), but the off-diagonal
 
 ---
 
-## Recommendation & open question
+## Decision (2026-08-05)
 
-**Lean: Candidate A (Technocratic ↔ Grassroots).** It's the only candidate that is *both*
-empirically orthogonal to axes 1–3 *and* generates the archetype taxonomy (via group × grid).
-Candidate B should power the **intensity clock**, not be a 4th axis. Candidate C is a
-legitimate "Voyager flavor" axis but is the thinnest empirically and is squeezed between
-axis 3 and the grid axis.
+**Candidate A (Technocratic ↔ Grassroots) is the 4th axis.** It's the only candidate that is
+*both* empirically orthogonal to axes 1–3 *and* generates the archetype taxonomy (via
+group × grid). Candidate B powers the **intensity clock**, not an axis.
 
-**Decision tensions to resolve:**
-1. Do **Individual↔Collective (3)** and **Technocratic↔Grassroots (4)** feel distinct enough
-   to a *user* answering a survey, or will they blur? (Most likely point of redundancy.)
-2. If ecomania targets **non-Anglo markets early**, how much does the grid axis's weaker
-   cross-cultural replication cost us — enough to prefer the thematically-rich-but-softer
-   Local↔Global instead?
-3. Do we want a 4th axis at all, or **3 orientation axes + a richer intensity clock**? (Three
-   is the most defensible read of the literature.)
+**Candidate C (Local ↔ Global) is dropped.** It reads as a near-duplicate of the grid axis:
+the correlation lives on the grassroots-local ↔ technocratic-global diagonal, and the
+off-diagonal cells it would buy us (global-grassroots, local-technocratic) are thin payoff for
+a whole extra axis, an extra Rive channel and extra survey length. The "Voyager / global
+systems thinker" flavor it was carrying moves into **archetype motif**, not axis geometry.
+
+**The value space is 4 axes.** No 5th.
+
+### How the resolved tensions were closed
+1. *Do axes 3 and 4 blur for a respondent?* — **Still open, but downstream.** It cannot be
+   answered on paper; it is now a **survey-instrument** question, to be settled by drafting
+   real items and checking they separate. Tracked in `creative-core-exploration.md`.
+2. *Non-Anglo markets vs the grid axis's weak replication (L2)* — **accepted as a known risk.**
+   Dropping to Local↔Global was the alternative, and it is empirically *thinner*, not
+   stronger. The mitigation is the planned confirmatory factor analysis on real onboarding
+   data (L4), not a pre-emptive swap.
+3. *4 axes or 3 + a richer clock?* — **4.** The 4th earns its slot on the archetype taxonomy
+   alone (group × grid → the four myths of nature).

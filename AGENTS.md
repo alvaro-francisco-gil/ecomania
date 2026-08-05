@@ -3,10 +3,11 @@
 Gamified ecology social app: eco-survey → evolving **ecoavatar** → social leveling.
 pnpm monorepo · native Expo "game" + Next.js funnel · Firebase backend · Rive avatar.
 
-> **Status: greenfield.** The apps under `apps/` are **not scaffolded yet**. This repo
-> currently holds the agentic foundation — rules, the design (`docs/architecture.md`),
-> the skills, and the ralph AFK loop that will bootstrap the rest. Don't assume code
-> exists; grep/read first.
+> **Status: scaffolded, not built.** All four workspaces build, lint, and test. What does
+> **not** exist is the product: no data models, no survey, no XP economy, no avatar asset.
+> Those are blocked on the creative core (`docs/architecture.md` §10). An empty barrel in
+> `packages/shared` is a deliberate statement that a decision is pending — don't fill it in to
+> unblock yourself. Grep/read before assuming either that code exists or that it doesn't.
 
 ## North Star — long-term repo health
 Every change must leave the repo **cheaper to navigate and modify next time**. This goal
@@ -16,8 +17,8 @@ In practice: delete rather than deprecate, consolidate duplicates when you spot 
 stale docs the moment you see them, and leave every file you touch a little better.
 
 ## Layout
-- `apps/mobile/` — Expo native app, *the game* (Rive avatar, Reanimated, Lottie, `@react-native-firebase`). _Not scaffolded yet._
-- `apps/funnel/` — Next.js web funnel: landing, ecology survey, avatar reveal, `/invite/[code]`. _Not scaffolded yet._
+- `apps/mobile/` — Expo native app, *the game* (Rive avatar, Reanimated, Lottie, `@react-native-firebase`).
+- `apps/funnel/` — Next.js web funnel: landing, ecology survey, avatar reveal, `/invite/[code]`.
 - `packages/shared/` — `@ecomania/shared`: models, services, and the **avatar / value / economy contracts**. TypeScript.
 - `functions/` — Firebase Cloud Functions. **The only writer of the economy.**
 - `docs/architecture.md` — the product + technical design. **Read this first.**
@@ -27,16 +28,17 @@ stale docs the moment you see them, and leave every file you touch a little bett
 
 ## Agent-first
 This repo is designed for agents to read and modify, not for humans browsing API docs.
-Lean on strict types, descriptive names, banner sections, and (once it exists) the services
-map at `packages/shared/src/services/_services-map.md`. Skip ceremony docs (per-function API
+Lean on strict types, descriptive names, banner sections, and the services map at
+`packages/shared/src/services/_services-map.md`. Skip ceremony docs (per-function API
 references, hand-maintained "Used in" lists) — they go stale, burn tokens, and grep is more
 reliable. Add a comment only when something can't be derived from types or names: side
 effects, preconditions, "use X instead".
 
 ## Core rules
-1. **Models are source of truth.** Once `packages/shared/src/models/` exists, reuse its
-   interfaces before defining new shapes. Data crossing service/component/hook boundaries
-   must match a model. _(Models are TBD — see `docs/architecture.md`.)_
+1. **Models are source of truth.** Reuse the interfaces in `packages/shared/src/models/`
+   before defining new shapes. Data crossing service/component/hook boundaries must match a
+   model. _(Still empty — blocked on `docs/architecture.md` §10. Empty means "decide first",
+   not "invent one here".)_
 2. **The economy is server-authoritative** (see the invariant below). This is the rule
    most likely to be violated by a well-meaning shortcut.
 3. **No retrocompat shims** unless explicitly asked. When changing a data shape, call out
@@ -76,11 +78,24 @@ a one-line suggestion (or an inline diff if under ~10 lines) when you notice:
 
 Soft proposals are the default — surface, then wait. Don't pre-implement large refactors uninvited.
 
-## How this repo bootstraps itself
-The apps don't exist yet. The path: `write-a-prd` → `prd-to-slices` → run the ralph loop
-(`pnpm ralph:once` / `pnpm ralph:afk`) to scaffold `apps/mobile`, `apps/funnel`,
-`packages/shared`, and `functions`. The first build plan is
-`docs/plans/ideas/bootstrap-apps.md`.
+## Verifying a change
+```sh
+pnpm typecheck && pnpm lint && pnpm test      # all four workspaces, functions included
+pnpm --filter @ecomania/shared build          # apps typecheck against dist/ — build it first
+pnpm --filter @ecomania/mobile exec expo export --platform android   # Metro resolution
+```
+
+Two non-obvious facts about this workspace:
+
+- **`node-linker=hoisted` in `.npmrc` is load-bearing.** Metro cannot follow pnpm's default
+  symlinked layout; without it `apps/mobile` stops bundling while everything else keeps
+  working. See `apps/mobile/AGENTS.md`.
+- **`functions/` is npm-managed and not a workspace member** — `firebase deploy` packages it
+  itself. Root scripts reach it via an explicit `npm --prefix functions` call; that is why each
+  one has an `&&` tail rather than relying on the pnpm filter.
+
+`tsc` and Metro resolve differently, so a green typecheck does not prove the app bundles.
+CI runs the export for that reason.
 
 ## Branch management
 - Base branch is `main`. New branches always branch off `main`. Naming: `feat/...`, `fix/...`.
@@ -97,6 +112,14 @@ The apps don't exist yet. The path: `write-a-prd` → `prd-to-slices` → run th
 - Plans live in `docs/plans/`; promote via `managing-plans-lifecycle`.
 
 ## Tests
-TBD — harnesses are wired up when the apps are scaffolded. Expect: vitest for
-`packages/shared`, an emulator harness for `functions/`, `@firebase/rules-unit-testing` for
-rules, and Maestro for mobile E2E (mirroring the sibling repos).
+- **`packages/shared`** — vitest (`test/**/*.test.ts`). Wired.
+- **`functions/`** — vitest. Wired. Includes `test/no-console-gate.test.ts`, which asserts the
+  structured-logging build gate is still an *error* — so relaxing the rule during an unrelated
+  lint cleanup fails a test rather than quietly passing.
+- **Firestore rules** — `@firebase/rules-unit-testing`. Not wired: there are no collections yet.
+  A rules test proving the economy denial must land **before** the first economy collection
+  ships (see the invariant above).
+- **Mobile E2E** — Maestro, mirroring the sibling repos. Not wired: there are no flows yet.
+
+`apps/funnel` has no test harness yet — its only logic is Firebase env validation. Add vitest
+when the survey lands, not before.

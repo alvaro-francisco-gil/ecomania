@@ -10,6 +10,15 @@ status: exploration / proposed
 
 **A five-axis model of ecological worldview for the ecoavatar.**
 
+> **Product decision (2026-08-05) — the shipped model is FOUR axes.** Axis 5
+> (*Local ↔ Global*) was proposed here as *secondary* and *droppable* (§4, §6/L3); it has been
+> **dropped**. It reads as a near-duplicate of Axis 4 (grid): the correlation sits on the
+> grassroots-local ↔ technocratic-global diagonal, and the off-diagonal cells don't justify an
+> extra axis, an extra Rive channel and extra survey length. Its "global systems thinker"
+> flavor moves into **archetype motif** rather than axis geometry. §3's Axis 5 section is
+> retained as the record of what was considered and why it lost. See
+> `docs/plans/ideas/value-axes-fourth-axis.md` for the decision.
+
 ## Abstract
 
 ecomania positions each user in a shared *value-axis space* derived from an onboarding survey,
@@ -155,6 +164,10 @@ independence, each backed by multiple frameworks). Axis 5 is *secondary*: includ
 richness and the global-thinker identity, but with the lowest empirical weight and the most
 overlap, so scoring should down-weight it relative to Axes 1–4, and it is the first candidate
 to drop if data shows it is redundant.
+
+*Resolved 2026-08-05: Axis 5 was dropped without waiting for data — the two flagged moderate
+collinearities (3×5, 4×5) were judged sufficient. The value space is Axes 1–4. Limitation L3
+is therefore closed by removal rather than by measurement.*
 
 ## 5. Design implications
 

@@ -93,10 +93,23 @@ and the full pricing ladder: [`docs/rive-and-animation.md`](rive-and-animation.m
 ## 5. The "living values" dynamic
 
 Distinct from the one-time archetype. **Topical questionnaires** about new ecology policies
-appear in the app over time. Each is content tagged against a shared set of ~4–6 **value
-axes** (e.g. Conservation↔Development, Individual↔Collective, Local↔Global, Tech-optimism↔Degrowth).
-Each answer carries small weighted contributions; on submit, a Function nudges the user's
-value vector via a moving average:
+appear in the app over time. Each is content tagged against the shared **value axes** —
+**four, locked 2026-08-05**, implemented in `packages/shared/src/values/`:
+
+| Axis | − pole | + pole | Avatar channel |
+|---|---|---|---|
+| `moralStanding` | anthropocentric | ecocentric | silhouette |
+| `means` | technological | sufficiency | material |
+| `agency` | individual | collective | multiplicity |
+| `power` | technocratic | grassroots | structure |
+
+There is **no fifth axis**. Local↔Global was considered and dropped as too close to `power`;
+reformist↔radical is the *intensity clock* (the XP/engagement dimension), not an axis. The
+literature grounding, the rejected candidates, and the reasoning:
+[`docs/plans/ideas/value-axes-fourth-axis.md`](plans/ideas/value-axes-fourth-axis.md).
+
+Each answer carries small weighted contributions on one or two axes; on submit, a Function
+nudges the user's value vector via a moving average:
 
 ```
 newPos[axis] = oldPos[axis] + η · (answerWeight − oldPos[axis])   // η small, e.g. 0.15
@@ -173,17 +186,24 @@ Invariant: **never make the user redo the survey after install.**
 ## 10. Open questions (deliberately unresolved)
 
 These are **not** decided yet and block the model/skill work that depends on them:
-- The exact **survey instrument**, the **value axes** (count + definitions), and the
-  **archetype taxonomy** (= the set of base `.riv` avatars the designer must build). These
-  three form the *creative core* and are being explored in a dedicated session — see the brief
-  and current straw-men in [`docs/plans/ideas/creative-core-exploration.md`](plans/ideas/creative-core-exploration.md).
+- The exact **survey instrument** and the **archetype taxonomy** (= the set of base `.riv`
+  avatars the designer must build). With the axes locked, these are the remaining two thirds of
+  the *creative core* — see the brief in
+  [`docs/plans/ideas/creative-core-exploration.md`](plans/ideas/creative-core-exploration.md).
+  Note its archetype straw-men predate the axis restart and need regenerating from the four
+  locked axes.
 - The **data models** (`profiles`, `posts`, `surveys`, `questionnaires`, `valueProfile`,
   `xpEvents`, `feeds`, …) and the precise XP values / level curve.
 - i18n strategy (multi-language from launch?).
+- Where the real `avatar.riv` comes from, and which placeholder to develop against until then.
 
-**Decided so far:** the avatar's base **form is stable**, with **user-consented morphs**
-proposed when the value vector drifts far enough (see §4).
+**Decided so far:**
+- The **value axes** — four, locked 2026-08-05, implemented in `packages/shared/src/values/`
+  (see §5).
+- The avatar's base **form is stable**, with **user-consented morphs** proposed when the value
+  vector drifts far enough (see §4).
 
-Until these land, the ecomania-specific skills (`awarding-xp`, `rive-avatar-contract`,
-`funnel-handoff`, `topical-questionnaire`, `values-privacy`, `moderation-pipeline`) stay
-**stubbed** — see `docs/plans/ideas/agentic-skills-backlog.md`.
+Until the rest land, the model-dependent skills (`awarding-xp`, `rive-avatar-contract`,
+`funnel-handoff`, `topical-questionnaire`, `moderation-pipeline`) stay **stubbed** — see
+`docs/plans/ideas/agentic-skills-backlog.md`, which now separates those from the ones the
+scaffold unblocked.

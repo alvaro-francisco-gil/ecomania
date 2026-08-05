@@ -14,14 +14,33 @@ One shared **value-axis space**, two clocks:
 - **Topical questionnaires** → keep nudging your **live position** over time (moving average)
   → drive the avatar's **surface** (palette/aura/stance) and the "values-discovery" feel.
 
+> **The designer-facing spec now lives in [`encargo-diseno-avatar.md`](encargo-diseno-avatar.md)**
+> (in Spanish) — visual vocabulary per axis, the parametric (non-catalogue) build model, the
+> deliverable list, and the neutral-first rule. It is blocked on the base-form count.
+
 ## Decided
+- **Value axes — FOUR, final (2026-08-05):** (1) Anthropocentric ↔ Ecocentric → *silhouette /
+  kingdom*; (2) Technological ↔ Sufficiency → *material / texture*; (3) Individual ↔ Collective
+  (group) → *multiplicity*; (4) Technocratic ↔ Grassroots (grid) → *structure / form-order*.
+  Intensity/urgency is **not** an axis — it lives on the XP/engagement clock (aura channel).
+  *Local ↔ Global was dropped* (too close to the grid axis); its global-thinker flavor moves
+  into archetype motif. Rationale: `value-axes-fourth-axis.md`; grounding:
+  `docs/projects/value-system.md`. **This unblocks the value-vector shape → the data models →
+  the ⭐ skills.**
+  - *Carried forward as a risk, not a blocker:* axes 3 and 4 are statistically orthogonal but
+    may blur for a respondent — settle it when drafting survey items, not before. And the grid
+    axis replicates weakly outside Anglo contexts (Pröpper 2022); validate with a confirmatory
+    factor analysis on real onboarding data.
+  - *User-facing copy:* never label the poles "technocratic"/"grassroots" — valence-imbalanced.
+    Use neutral pairs (*Institutional ↔ Community*, *Vertical ↔ Horizontal*).
 - **Archetype lifecycle (2026-06-28):** the base form is **stable by default**. When the live
   value vector drifts far enough, the app **proposes a morph** (transformation ceremony) that
   the **user accepts or declines** — user-consented evolution, never automatic. *Open:* what
   "drift far enough" means, and how the proposal should feel.
 
 ## Open — to resolve in the exploration session
-1. **Value axes** — 4 vs 5, which ones, definitions, independence, visual mapping.
+1. ~~**Value axes** — 4 vs 5, which ones, definitions, independence, visual mapping.~~
+   **Closed 2026-08-05 — see Decided.**
 2. **Archetype taxonomy** — count (= designer cost; each = one base `.riv`), identities, axis
    anchors, eco-motifs.
 3. **Survey instrument** — onboarding format + scoring; the topical-questionnaire content
