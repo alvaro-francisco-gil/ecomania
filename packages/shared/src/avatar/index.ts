@@ -1,14 +1,41 @@
 /**
- * The Rive input contract — input and data-binding names as constants, plus the mapping from
- * profile data to avatar inputs. Consumed identically by `rive-react-native` (app) and
- * `@rive-app/react-canvas` (funnel), against one `avatar.riv`.
+ * The Rive contract — how a user's stored state becomes an avatar, identically in both
+ * renderers.
  *
- * Empty on purpose, and the last thing here that should be guessed at. The inputs fall into
- * three groups (`docs/architecture.md` §4): archetype (base form), aspects (voice / knowledge /
- * community), and the value vector — and the first of those is blocked on the archetype
- * taxonomy, which the creative core has not settled.
+ * The design this implements: `docs/decisions/avatar-rendering.md` (sign is identity, magnitude
+ * is intensity), `docs/decisions/avatar-element.md` (the one thing the user picks), and
+ * `docs/plans/ideas/encargo-diseno-avatar.md` (the designer's specification).
  *
- * When it lands: renaming an input is a contract change touching both renderers and the `.riv`
- * itself. See `rive-avatar-contract`.
+ * **The input names are frozen.** Renaming one breaks the app and the funnel simultaneously and
+ * desynchronises them from the `.riv`. See `rive-avatar-contract`.
  */
-export {};
+export {
+  RIVE_AURA_INPUT,
+  RIVE_INPUTS,
+  RIVE_INPUT_BOUNDARY,
+  RIVE_INPUT_MAX,
+  RIVE_INPUT_MIN,
+  axisToRiveInput,
+} from './inputs.js';
+
+export {
+  BASE_FORMS,
+  BASE_FORMS_PER_POLE,
+  selectBaseForm,
+  type BaseForm,
+  type BaseFormId,
+} from './baseForms.js';
+
+export {
+  ELEMENTS,
+  getElement,
+  isElementId,
+  type Element,
+  type ElementId,
+} from './elements.js';
+
+export {
+  computeAvatarInputs,
+  type AvatarPresentation,
+  type AvatarSource,
+} from './computeInputs.js';

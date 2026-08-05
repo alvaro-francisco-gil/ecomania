@@ -22,9 +22,9 @@ Because the output is consumed by both a Next.js bundler and Metro, relative imp
 - `src/models/` — the data shapes. **Source of truth.** _Empty — blocked on `docs/architecture.md` §10._
 - `src/services/` — the **only** place client code imports the Firestore SDK. Indexed by
   `_services-map.md`. See `touch-service`. _Empty — blocked on the models._
-- `src/avatar/` — the **Rive input contract**: input/data-binding names as constants, plus
-  `computeInputs()`. Consumed identically by `rive-react-native` (app) and
-  `@rive-app/react-canvas` (funnel). _Empty — blocked on the archetype taxonomy._
+- `src/avatar/` — ✅ **the Rive input contract.** Frozen input names, the base-form registry, the
+  elements, and `computeAvatarInputs()`. Consumed identically by `rive-react-native` (app) and
+  `@rive-app/react-canvas` (funnel).
 - `src/values/` — ✅ **the value-axis contract.** Four locked axes, the vector type, and the
   moving-average nudge.
 - `src/economy/` — XP rules: sources, daily caps, level curve, aspect mapping. _Empty — blocked
@@ -65,6 +65,31 @@ Four axes, locked 2026-08-05 (`docs/projects/value-system.md`). Each runs `-1` (
   consent and deliberate exposure rules (`values-privacy`).
 - Value updates are a *measurement* — uncapped and not gameable. XP for the same submission is
   a separate capped, idempotent call. Never fuse them.
+
+## The Rive contract (`src/avatar/`)
+
+`computeAvatarInputs({ vector, elementId, auraIntensity })` is the single mapping from stored
+state to a rendered avatar. Both renderers call it; neither computes anything itself. That is
+what makes the funnel's reveal and the app's home screen provably the same creature.
+
+- **The input names are frozen.** `surface` · `companions` · `geometry` · `aura`. Renaming one
+  breaks both apps at once *and* desynchronises them from the `.riv`. It is an explicit request
+  with a PR touching all three, never a silent adjustment.
+- **`50` is the boundary, not a midpoint.** Inputs run `0..100`; below 50 is the negative pole,
+  at-or-above is the positive one, and distance from 50 is the marker's density. One number
+  carries identity *and* intensity, which is why a questionnaire can move the avatar visibly
+  without crossing a pole.
+- **`moralStanding` has no input** — it selects which `.riv` artboard to load. A topology change
+  cannot be interpolated, and it is the only axis gated behind a consented morph ceremony.
+- **`BASE_FORMS` must stay even**, split evenly across the poles; a test enforces it. An odd
+  count makes the middle form a smuggled neutral. Growing 2 → 4 is data plus `.riv` files, with
+  no change to the selection rule.
+- **The element never touches the body.** It selects the aura's *material*; the clock owns its
+  intensity. A test asserts changing the element leaves every input identical.
+- **`auraIntensity` is passed in, not derived** — the XP curve does not exist yet, and inventing
+  one inside a mapping function would bury a product decision. When it lands it belongs in
+  `../economy/`.
+- Corrupt values **throw**. Rendering a plausible avatar from a broken vector hides the bug.
 
 The three contracts (`avatar`, `values`, `economy`) are the cross-cutting agreements that keep
 the funnel, the app, the Functions, and the designer's `.riv` in lockstep. Treat a rename in any
