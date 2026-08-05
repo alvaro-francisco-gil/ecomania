@@ -37,18 +37,22 @@ question, or ask.
 
 ## The value-axis contract (`src/values/`)
 
-Four axes, locked 2026-08-05 (`docs/plans/ideas/value-axes-fourth-axis.md`). Each runs
-`-1` (negative pole) → `+1` (positive pole), each drives one non-overlapping avatar channel:
+Four axes, locked 2026-08-05 (`docs/projects/value-system.md`). Each runs `-1` (negative pole)
+→ `+1` (positive pole), each drives one non-overlapping avatar channel:
 
 | Axis | − | + | Channel |
 |---|---|---|---|
-| `moralStanding` | anthropocentric | ecocentric | silhouette |
-| `means` | technological | sufficiency | material |
-| `agency` | individual | collective | multiplicity |
-| `power` | technocratic | grassroots | structure |
+| `moralStanding` | anthropocentric | ecocentric | base form *(picks the `.riv`)* |
+| `means` | technological | sufficiency | surface |
+| `agency` | individual | collective | companions |
+| `power` | technocratic | grassroots | geometry |
 
 - **The sign convention is load-bearing.** Swapping a pole reverses every stored vector and
   every avatar visual — it is a data migration, not a rename.
+- **Sign is identity, magnitude is only intensity.** There is **no neutral rendering on any
+  axis**: `+0.1` and `+0.9` are the same look at different strengths, never a blend of the two
+  poles. So `ORIGIN_VALUE_VECTOR` is a *data* zero, not a third visual state — don't read a 0
+  as "unknown", that is what the per-axis answered count is for.
 - **Pole names are identifiers, never display copy.** Nobody self-describes as "technocratic";
   showing these words to a user biases the answer we are trying to measure. User-facing labels
   are neutral pairs (Institutional ↔ Community, Vertical ↔ Horizontal) from the message catalog.

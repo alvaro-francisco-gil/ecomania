@@ -19,5 +19,3 @@ them one at a time, committing per slice. Ported from the sibling repos.
 ## Guardrails
 The loop will **not** push to `main`, deploy, merge, force-push, amend, or bypass hooks. Run
 it from a worktree (see `parallel-agent-workflow`, once written) or pass `--in-worktree`.
-
-> The repo is greenfield — the first plan to slice is `docs/plans/ideas/bootstrap-apps.md`.

@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 
 import {
   DEFAULT_LEARNING_RATE,
-  NEUTRAL_VALUE_VECTOR,
+  ORIGIN_VALUE_VECTOR,
   VALUE_AXES,
   VALUE_AXIS_IDS,
   dominantAxis,
@@ -35,7 +35,7 @@ describe('the axis set', () => {
 
 describe('nudgeValueVector', () => {
   it('moves an axis a fraction of the way toward the answer', () => {
-    const next = nudgeValueVector(NEUTRAL_VALUE_VECTOR, { means: 1 }, 0.15);
+    const next = nudgeValueVector(ORIGIN_VALUE_VECTOR, { means: 1 }, 0.15);
     expect(next.means).toBeCloseTo(0.15);
   });
 
@@ -50,7 +50,7 @@ describe('nudgeValueVector', () => {
   });
 
   it('converges toward the answer without overshooting it', () => {
-    let vector = NEUTRAL_VALUE_VECTOR;
+    let vector = ORIGIN_VALUE_VECTOR;
     for (let i = 0; i < 200; i += 1) {
       vector = nudgeValueVector(vector, { agency: 1 });
       expect(vector.agency).toBeLessThanOrEqual(1);
@@ -73,35 +73,35 @@ describe('nudgeValueVector', () => {
   });
 
   it('does not mutate the vector it was given', () => {
-    const current: ValueVector = { ...NEUTRAL_VALUE_VECTOR };
+    const current: ValueVector = { ...ORIGIN_VALUE_VECTOR };
     nudgeValueVector(current, { power: 1 });
     expect(current.power).toBe(0);
   });
 
   it('throws rather than clamping an out-of-range weight', () => {
-    expect(() => nudgeValueVector(NEUTRAL_VALUE_VECTOR, { means: 1.5 })).toThrow(RangeError);
+    expect(() => nudgeValueVector(ORIGIN_VALUE_VECTOR, { means: 1.5 })).toThrow(RangeError);
   });
 
   it('throws on an out-of-range starting vector', () => {
-    const bad = { ...NEUTRAL_VALUE_VECTOR, agency: -2 };
+    const bad = { ...ORIGIN_VALUE_VECTOR, agency: -2 };
     expect(() => nudgeValueVector(bad, { means: 0.5 })).toThrow(RangeError);
   });
 
   it('throws on a learning rate outside (0, 1]', () => {
-    expect(() => nudgeValueVector(NEUTRAL_VALUE_VECTOR, { means: 1 }, 0)).toThrow(RangeError);
-    expect(() => nudgeValueVector(NEUTRAL_VALUE_VECTOR, { means: 1 }, 1.5)).toThrow(RangeError);
+    expect(() => nudgeValueVector(ORIGIN_VALUE_VECTOR, { means: 1 }, 0)).toThrow(RangeError);
+    expect(() => nudgeValueVector(ORIGIN_VALUE_VECTOR, { means: 1 }, 1.5)).toThrow(RangeError);
   });
 
   it('defaults to the documented learning rate', () => {
-    const explicit = nudgeValueVector(NEUTRAL_VALUE_VECTOR, { means: 1 }, DEFAULT_LEARNING_RATE);
-    const implicit = nudgeValueVector(NEUTRAL_VALUE_VECTOR, { means: 1 });
+    const explicit = nudgeValueVector(ORIGIN_VALUE_VECTOR, { means: 1 }, DEFAULT_LEARNING_RATE);
+    const implicit = nudgeValueVector(ORIGIN_VALUE_VECTOR, { means: 1 });
     expect(implicit).toEqual(explicit);
   });
 });
 
 describe('dominantAxis', () => {
   it('returns null for a neutral vector rather than picking arbitrarily', () => {
-    expect(dominantAxis(NEUTRAL_VALUE_VECTOR)).toBeNull();
+    expect(dominantAxis(ORIGIN_VALUE_VECTOR)).toBeNull();
   });
 
   it('names the pole matching the sign', () => {

@@ -20,7 +20,7 @@ export {
 
 export {
   DEFAULT_LEARNING_RATE,
-  NEUTRAL_VALUE_VECTOR,
+  ORIGIN_VALUE_VECTOR,
   assertValueVector,
   dominantAxis,
   nudgeValueVector,

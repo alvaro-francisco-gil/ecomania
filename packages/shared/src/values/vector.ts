@@ -16,7 +16,13 @@ export type ValueVector = Readonly<Record<ValueAxisId, number>>;
  */
 export type AxisWeights = Readonly<Partial<Record<ValueAxisId, number>>>;
 
-export const NEUTRAL_VALUE_VECTOR: ValueVector = Object.freeze(
+/**
+ * The origin of the value space — every axis at 0. This is a *data* zero (no evidence yet, or
+ * evidence that cancels out), **not** a renderable neutral: the avatar has no neutral state on
+ * any axis, so a 0 renders as the faintest expression of the positive pole rather than as a
+ * third "neither" look. See `docs/plans/ideas/encargo-diseno-avatar.md`.
+ */
+export const ORIGIN_VALUE_VECTOR: ValueVector = Object.freeze(
   Object.fromEntries(VALUE_AXIS_IDS.map((id) => [id, 0])) as Record<ValueAxisId, number>,
 );
 

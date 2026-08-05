@@ -70,9 +70,20 @@ inputs / data-binding on one `.riv` file:
    proposal UX are part of the creative-core exploration.)*
 2. **Aspects** — activity volume in three dimensions, each growing different parts:
    `voice` (posting), `knowledge` (surveys/questionnaires), `community` (comments/referrals).
-3. **Value vector** — the evolving eco-identity (see §5); drives palette / aura / stance.
+3. **Value vector** — the evolving eco-identity (see §5); drives surface, companions and body
+   geometry.
 
 Plus triggers for juice (`xpPulse`, `levelUpBurst`) and booleans for unlockable cosmetics.
+
+**How a value becomes a visual: sign is identity, magnitude is intensity.** **No axis has a
+neutral state.** The sign picks *which* pole marker shows — never a blend of the two — and the
+magnitude picks only *how strongly* it reads, expressed by repeating a designed element (2
+patches vs 12) rather than by interpolating between poles. Everything a user sees is therefore
+authored, the onboarding reveal lands at full strength, and answering a questionnaire stays
+visible without having to cross a boundary. Two consequences worth knowing before touching
+either renderer: the number of base forms must be **even** (an odd count makes the middle one a
+smuggled neutral), and no pole may be designed as the *absence* of its opposite. Full designer
+specification: [`docs/plans/ideas/encargo-diseno-avatar.md`](plans/ideas/encargo-diseno-avatar.md).
 
 **Designer ↔ developer contract.** The designer owns *what can happen* (art, rig, animations,
 state-machine logic) in the Rive editor; code owns *when, with what data* by setting inputs.
@@ -98,15 +109,16 @@ appear in the app over time. Each is content tagged against the shared **value a
 
 | Axis | − pole | + pole | Avatar channel |
 |---|---|---|---|
-| `moralStanding` | anthropocentric | ecocentric | silhouette |
-| `means` | technological | sufficiency | material |
-| `agency` | individual | collective | multiplicity |
-| `power` | technocratic | grassroots | structure |
+| `moralStanding` | anthropocentric | ecocentric | base form *(picks the `.riv`)* |
+| `means` | technological | sufficiency | surface |
+| `agency` | individual | collective | companions |
+| `power` | technocratic | grassroots | geometry |
 
 There is **no fifth axis**. Local↔Global was considered and dropped as too close to `power`;
 reformist↔radical is the *intensity clock* (the XP/engagement dimension), not an axis. The
-literature grounding, the rejected candidates, and the reasoning:
-[`docs/plans/ideas/value-axes-fourth-axis.md`](plans/ideas/value-axes-fourth-axis.md).
+decision and the rejected candidates: [`docs/decisions/value-axes.md`](decisions/value-axes.md).
+The literature grounding and per-axis independence analysis:
+[`docs/projects/value-system.md`](projects/value-system.md).
 
 Each answer carries small weighted contributions on one or two axes; on submit, a Function
 nudges the user's value vector via a moving average:
@@ -115,8 +127,15 @@ nudges the user's value vector via a moving average:
 newPos[axis] = oldPos[axis] + η · (answerWeight − oldPos[axis])   // η small, e.g. 0.15
 ```
 
-so identity emerges over many topics rather than whiplashing. A **confidence** grows with the
-count answered.
+so identity emerges over many topics rather than whiplashing.
+
+There is **one** live vector, not a frozen snapshot plus a live one: archetype stability comes
+from `archetypeId` being a stored, sticky field, never recomputed silently. Onboarding
+*positions* the vector directly (weighted average of the items); topical questionnaires *nudge*
+it. Coverage is uneven by construction — a questionnaire on nuclear power hits `means` three
+times and `power` not at all — so the answered count is tracked **per axis**, not globally. It
+drives scoring and which axis to ask about next; it does **not** damp the avatar, which reads
+the sign at full strength from the first answer (§4).
 
 **Critical separations:**
 - **XP vs values.** Completing a questionnaire *earns XP* (capped, anti-cheat) **and
@@ -190,8 +209,8 @@ These are **not** decided yet and block the model/skill work that depends on the
   avatars the designer must build). With the axes locked, these are the remaining two thirds of
   the *creative core* — see the brief in
   [`docs/plans/ideas/creative-core-exploration.md`](plans/ideas/creative-core-exploration.md).
-  Note its archetype straw-men predate the axis restart and need regenerating from the four
-  locked axes.
+  The archetype taxonomy is gated on one product call: **how many base forms to pay for** (2 or
+  4 — it must be even). Until that lands, the designer commission cannot be issued.
 - The **data models** (`profiles`, `posts`, `surveys`, `questionnaires`, `valueProfile`,
   `xpEvents`, `feeds`, …) and the precise XP values / level curve.
 - i18n strategy (multi-language from launch?).
@@ -199,7 +218,9 @@ These are **not** decided yet and block the model/skill work that depends on the
 
 **Decided so far:**
 - The **value axes** — four, locked 2026-08-05, implemented in `packages/shared/src/values/`
-  (see §5).
+  (see §5). Record: [`docs/decisions/value-axes.md`](decisions/value-axes.md).
+- **How a value becomes a visual** — sign is identity, magnitude is intensity, no neutral on any
+  axis (see §4). Record: [`docs/decisions/avatar-rendering.md`](decisions/avatar-rendering.md).
 - The avatar's base **form is stable**, with **user-consented morphs** proposed when the value
   vector drifts far enough (see §4).
 

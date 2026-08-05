@@ -55,4 +55,4 @@ mirrored, but this package is not a pnpm workspace member and cannot import it.
 - Don't deploy to beta/prod (`firestore-deploy` refuses; CI owns those).
 - Don't add a `console.*` escape hatch, or an eslint-disable for it.
 
-See the root [`AGENTS.md`](../../AGENTS.md) and [`docs/architecture.md`](../../docs/architecture.md).
+See the root [`AGENTS.md`](../AGENTS.md) and [`docs/architecture.md`](../docs/architecture.md).
